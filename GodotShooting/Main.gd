@@ -18,6 +18,7 @@ func _physics_process(delta):
 		$Fighter.position.x = min(FIGHTER_RIGHT, $Fighter.position.x)
 	if Input.is_action_pressed("ui_accept"):
 		$Fighter/Line2D.show()
+		$AudioBeamGun.play()
 	else:
 		$Fighter/Line2D.hide()
 	pass

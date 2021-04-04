@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://images/fighter32x32.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://sounds/beamgun.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.363, 16.9316 )
@@ -36,3 +37,6 @@ shape = SubResource( 1 )
 [node name="RayCast2D" type="RayCast2D" parent="Fighter"]
 enabled = true
 cast_to = Vector2( 0, -800 )
+
+[node name="AudioBeamGun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
