@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://images/workspaces_white.png" type="Texture" id=1]
+[ext_resource path="res://Enemy.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 45.0
 
 [node name="Enemy" type="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
