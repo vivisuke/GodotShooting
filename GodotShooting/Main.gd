@@ -19,6 +19,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_accept"):
 		$Fighter/Line2D.show()
 		$AudioBeamGun.play()
+		var b = $Fighter/RayCast2D.is_colliding()
+		print("is_colliding = ", b)
 	else:
 		$Fighter/Line2D.hide()
 	pass
