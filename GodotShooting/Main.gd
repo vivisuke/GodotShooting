@@ -10,6 +10,7 @@ const ENEMY_DY = 64
 const ENEMY_X0 = 64
 const ENEMY_DX = 64
 
+var lazerEnable : bool = true
 var Enemy = load("res://Enemy.tscn")
 
 func _ready():
@@ -29,7 +30,9 @@ func _physics_process(delta):
 		$Fighter.position.x += dx * 4
 		$Fighter.position.x = max(FIGHTER_LEFT, $Fighter.position.x)
 		$Fighter.position.x = min(FIGHTER_RIGHT, $Fighter.position.x)
-	if Input.is_action_pressed("ui_accept"):
+	if lazerEnable && Input.is_action_pressed("ui_accept"):
+		lazerEnable = false
+		$Timer.start(1.0)
 		$Fighter/Line2D.show()
 		$AudioBeamGun.play()
 		#var b = $Fighter/RayCast2D.is_colliding()
@@ -41,3 +44,8 @@ func _physics_process(delta):
 	else:
 		$Fighter/Line2D.hide()
 	pass
+
+
+func _on_Timer_timeout():
+	lazerEnable = true
+	pass # Replace with function body.
