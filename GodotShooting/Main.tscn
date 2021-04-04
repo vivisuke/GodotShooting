@@ -1,4 +1,9 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/fighter32x32.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.363, 16.9316 )
 
 [node name="Main" type="Node2D"]
 
@@ -9,3 +14,23 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Fighter" type="KinematicBody2D" parent="."]
+position = Vector2( 250, 700 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Line2D" type="Line2D" parent="Fighter"]
+points = PoolVector2Array( 0, 0, 0, -800 )
+width = 2.0
+
+[node name="Sprite" type="Sprite" parent="Fighter"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fighter"]
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Fighter"]
+enabled = true
+cast_to = Vector2( 0, -800 )
